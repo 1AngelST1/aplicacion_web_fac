@@ -1,4 +1,28 @@
 <?php
+// Función para guardar XML con formato (pretty print)
+function guardarXMLFormateado($xml, $ruta) {
+  $dom = new DOMDocument('1.0', 'UTF-8');
+  $dom->preserveWhiteSpace = false;
+  $dom->formatOutput = true;
+  $dom->loadXML($xml->asXML());
+  
+  // Guardar con formato
+  $dom->save($ruta);
+  
+  // Leer el contenido guardado
+  $contenido = file_get_contents($ruta);
+  
+  // Asegurar que la instrucción XSL esté en la segunda línea
+  if (strpos($contenido, '<?xml-stylesheet') === false) {
+    $lineas = explode("\n", $contenido);
+    array_splice($lineas, 1, 0, '<?xml-stylesheet type="text/xsl" href="xmlgeneral.xsl"?>');
+    $contenido = implode("\n", $lineas);
+    file_put_contents($ruta, $contenido);
+  }
+  
+  return true;
+}
+
 switch ($_POST["acc"]) {
   case '1': #nuevo Registro del XML
     //Obtener variables
@@ -57,7 +81,8 @@ switch ($_POST["acc"]) {
             $materia = $materias_imp->addChild('materia');
             $materia->addAttribute('clave_mat', $clave_mat);
           }
-          echo $xml->asXML("../xmlgeneral.xml");
+          guardarXMLFormateado($xml, "../xmlgeneral.xml");
+          echo "1";
         }
         break;
       case 2:
@@ -86,7 +111,8 @@ switch ($_POST["acc"]) {
             $materia = $materias_imp->addChild('materia');
             $materia->addAttribute('clave_mat', $clave_mat);
           }
-          echo $xml->asXML("../xmlgeneral.xml");
+          guardarXMLFormateado($xml, "../xmlgeneral.xml");
+          echo "1";
         }
         break;
       case 3:
@@ -106,7 +132,46 @@ switch ($_POST["acc"]) {
           $materia->addChild('horario', $horario);
           $materia->addChild('salon', $salon);
           $materia->addChild('periodo', $periodo);
-          echo $xml->asXML("../xmlgeneral.xml");
+          guardarXMLFormateado($xml, "../xmlgeneral.xml");
+          echo "1";
+        }
+        break;
+      case 4:
+      #Insertar Actividad Extracurricular
+        //Validar si existe la Clave de Actividad
+        $dato = $xml->xpath("/facultad/posgrado/maestria/actividades_extracurriculares/actividad[@clave_actividad='".$clave_actividad."']");
+        if ( count($dato) > 0 ) {
+          //Ya existe la clave
+          echo "0";
+        } else {
+          //Validar si existe el alumno
+          $alumno_existe = $xml->xpath("/facultad/posgrado/maestria/areas/area/alumnos/alumno[matricula='".$matricula_alumno."']");
+          if ( count($alumno_existe) == 0 ) {
+            //El alumno no existe
+            echo "-1";
+          } else {
+            //Validar que el alumno no esté ya inscrito en esta actividad
+            $inscripcion_duplicada = $xml->xpath("/facultad/posgrado/maestria/actividades_extracurriculares/actividad[nombre_actividad='".$nombre_actividad."' and matricula_alumno='".$matricula_alumno."']");
+            if ( count($inscripcion_duplicada) > 0 ) {
+              //El alumno ya está inscrito en esta actividad
+              echo "-2";
+            } else {
+              //No existe, realizar inserción
+              $actividad = $xml->posgrado->maestria->actividades_extracurriculares->addChild('actividad');
+              $actividad->addAttribute('clave_actividad', $clave_actividad);
+              $actividad->addChild('nombre_actividad', $nombre_actividad);
+              $actividad->addChild('tipo', $tipo_actividad);
+              $actividad->addChild('instructor', $instructor);
+              $actividad->addChild('matricula_alumno', $matricula_alumno);
+              $actividad->addChild('dias_semana', $dias_semana);
+              $actividad->addChild('horario', $horario);
+              $actividad->addChild('lugar', $lugar);
+              $actividad->addChild('costo_semestral', $costo_semestral);
+              $actividad->addChild('creditos_complementarios', $creditos_complementarios);
+              guardarXMLFormateado($xml, "../xmlgeneral.xml");
+              echo "1";
+            }
+          }
         }
         break;
     }
@@ -166,7 +231,8 @@ switch ($_POST["acc"]) {
           $materia = $materias_imp->addChild('materia');
           $materia->addAttribute('clave_mat', $clave_mat);
         }
-        echo $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
+        echo "1";
         break;
       case 2:
       #Editar Profesor
@@ -191,7 +257,8 @@ switch ($_POST["acc"]) {
           $materia = $materias_imp->addChild('materia');
           $materia->addAttribute('clave_mat', $clave_mat);
         }
-        echo $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
+        echo "1";
         break;
       case 3:
       #Editar Materia
@@ -207,7 +274,42 @@ switch ($_POST["acc"]) {
         $materia->addChild('horario', $horario);
         $materia->addChild('salon', $salon);
         $materia->addChild('periodo', $periodo);
-        echo $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
+        echo "1";
+        break;
+      case 4:
+      #Editar Actividad Extracurricular
+        //Validar que el alumno exista
+        $alumno_existe = $xml->xpath("/facultad/posgrado/maestria/areas/area/alumnos/alumno[matricula='".$matricula_alumno."']");
+        if ( count($alumno_existe) == 0 ) {
+          //El alumno no existe
+          echo "-1";
+        } else {
+          //Validar que el alumno no esté ya inscrito en esta actividad (excepto el registro actual)
+          $inscripcion_duplicada = $xml->xpath("/facultad/posgrado/maestria/actividades_extracurriculares/actividad[nombre_actividad='".$nombre_actividad."' and matricula_alumno='".$matricula_alumno."' and @clave_actividad!='".$id."']");
+          if ( count($inscripcion_duplicada) > 0 ) {
+            //El alumno ya está inscrito en esta actividad
+            echo "-2";
+          } else {
+            $dato = $xml->xpath("/facultad/posgrado/maestria/actividades_extracurriculares/actividad[@clave_actividad='".$id."']");
+            //Eliminar anterior
+            unset($dato[0][0]);
+            //Insertar nuevo
+            $actividad = $xml->posgrado->maestria->actividades_extracurriculares->addChild('actividad');
+            $actividad->addAttribute('clave_actividad', $id);
+            $actividad->addChild('nombre_actividad', $nombre_actividad);
+            $actividad->addChild('tipo', $tipo_actividad);
+            $actividad->addChild('instructor', $instructor);
+            $actividad->addChild('matricula_alumno', $matricula_alumno);
+            $actividad->addChild('dias_semana', $dias_semana);
+            $actividad->addChild('horario', $horario);
+            $actividad->addChild('lugar', $lugar);
+            $actividad->addChild('costo_semestral', $costo_semestral);
+            $actividad->addChild('creditos_complementarios', $creditos_complementarios);
+            guardarXMLFormateado($xml, "../xmlgeneral.xml");
+            echo "1";
+          }
+        }
         break;
     }
     break;
@@ -221,13 +323,13 @@ switch ($_POST["acc"]) {
       #Eliminar Estudiante
         $dato = $xml->xpath("/facultad/posgrado/maestria/areas/area/alumnos/alumno[matricula='".$id."']");
         unset($dato[0][0]);
-        $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
         break;
       case 2:
       #Eliminar Profesor
         $dato = $xml->xpath("/facultad/posgrado/maestria/personal/profesores/profesor[@id_profesor=".$id."]");
         unset($dato[0][0]);
-        $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
         break;
       case 3:
       #Eliminar Materia
@@ -241,7 +343,13 @@ switch ($_POST["acc"]) {
         for ($i=0; $i < count($dato); $i++) {
           unset($dato[$i][0]);
         }
-        $xml->asXML("../xmlgeneral.xml");
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
+        break;
+      case 4:
+      #Eliminar Actividad Extracurricular
+        $dato = $xml->xpath("/facultad/posgrado/maestria/actividades_extracurriculares/actividad[@clave_actividad='".$id."']");
+        unset($dato[0][0]);
+        guardarXMLFormateado($xml, "../xmlgeneral.xml");
         break;
     }
     break;

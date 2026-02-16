@@ -13,24 +13,23 @@
         <script src="js/external/jquery/jquery.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script src="js/busquedas.js"></script>
+        <script src="js/acciones.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
       </head>
       <body class="fondo_main">
         <div class="container col-md-10">
           <br/>
-          <div align="center">
-            <img src="assets/escudo_buap.png" width="250px" height="250px"/>
-            <img src="assets/letras.png" width="350px" height="100px"/>
+          <div align="center" class="logo-container">
+            <img src="assets/escudo_buap.png" width="200px" height="200px"/>
+            <img src="assets/letras.png" width="350px" height="90px" style="margin-left: 25px;"/>
           </div>
-          <br/>
           <h2 align="center" class="titulo">FACULTAD DE CIENCIAS DE LA COMPUTACIÓN</h2>
-          <br/>
           <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h2 class="col">
                   <button class="btn btn-link text_btn_acordeon" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Estudiantes
+                    <i class="fas fa-user-graduate accordion-icon"></i> Estudiantes
                   </button>
                 </h2>
               </div>
@@ -46,25 +45,28 @@
               <div class="card-header" id="headingTwo">
                 <h2 class="col">
                   <button class="btn btn-link collapsed text_btn_acordeon" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Profesores
+                    <i class="fas fa-chalkboard-teacher accordion-icon"></i> Profesores
                   </button>
                 </h2>
               </div>
               <div id="collapseTwo" class="collapse hidden" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="form-row">
-                  <div class="col" style="margin-top:10px;margin-left:20px">
-                    <button type="button" class="btn btn-success" name="button">
+                <div class="form-row" style="padding: 20px; background: #f8f9fa;">
+                  <div class="col-md-4" style="margin-top:10px;">
+                    <button type="button" class="btn btn-success btn-block" name="button">
                       <xsl:attribute name="onclick">
                       agregar(2)
                       </xsl:attribute>
                     <i class="fas fa-plus-circle"></i>  Agregar Profesor
                   </button>
                 </div>
-                <div class="col input-group" style="margin-top:10px;margin-left:20px">
-                  <span class="input-group-text span_search">Búsqueda Por Nombre</span>
-                  <input type="text" class="form-control input_search" placeholder="Nombre" id="searchTerm" onkeyup="doSearch('profesores','searchTerm')"/>
+                <div class="col-md-8" style="margin-top:10px;">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text span_search"><i class="fas fa-search"></i> Búsqueda Por Nombre</span>
+                    </div>
+                    <input type="text" class="form-control input_search" placeholder="Nombre del profesor..." id="searchTerm" onkeyup="doSearch('profesores','searchTerm')"/>
+                  </div>
                 </div>
-
                 </div>
                 <div class="card-body col-md-12">
                   <xsl:for-each select="facultad/posgrado/maestria/personal">
@@ -77,25 +79,28 @@
               <div class="card-header" id="headingThree">
                 <h2 class="col">
                   <button class="btn btn-link text_btn_acordeon" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                    Materias
+                    <i class="fas fa-book accordion-icon"></i> Materias
                   </button>
                 </h2>
               </div>
               <div id="collapseThree" class="collapse hidden" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="form-row">
-                  <div class="col" style="margin-top:10px;margin-left:10px">
-                    <button type="button" class="btn btn-success" name="button">
+                <div class="form-row" style="padding: 20px; background: #f8f9fa;">
+                  <div class="col-md-4" style="margin-top:10px;">
+                    <button type="button" class="btn btn-success btn-block" name="button">
                       <xsl:attribute name="onclick">
                       agregar(3)
                     </xsl:attribute>
                     <i class="fas fa-plus-circle"></i>  Agregar Materia
                   </button>
                 </div>
-                <div class="col input-group" style="margin-top:10px;margin-left:20px">
-                  <span class="input-group-text span_search">Búsqueda Por Nombre</span>
-                  <input type="text" class="form-control input_search" placeholder="Nombre" id="searchTerm2" onkeyup="doSearch('materias','searchTerm2')"/>
+                <div class="col-md-8" style="margin-top:10px;">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text span_search"><i class="fas fa-search"></i> Búsqueda Por Nombre</span>
+                    </div>
+                    <input type="text" class="form-control input_search" placeholder="Nombre de la materia..." id="searchTerm2" onkeyup="doSearch('materias','searchTerm2')"/>
+                  </div>
                 </div>
-
                 </div>
                 <div class="card-body col-md-12">
                   <table class="table" id="materias">
@@ -118,135 +123,87 @@
                 </div>
               </div>
             </div>
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="col">
+                  <button class="btn btn-link text_btn_acordeon" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fas fa-futbol accordion-icon"></i> Actividades Extracurriculares
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse hidden" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="form-row" style="padding: 20px; background: #f8f9fa;">
+                  <div class="col-md-4" style="margin-top:10px;">
+                    <button type="button" class="btn btn-success btn-block" name="button">
+                      <xsl:attribute name="onclick">
+                      agregar(4)
+                    </xsl:attribute>
+                    <i class="fas fa-plus-circle"></i>  Agregar Actividad
+                  </button>
+                </div>
+                <div class="col-md-8" style="margin-top:10px;">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text span_search"><i class="fas fa-search"></i> Búsqueda Por Nombre</span>
+                    </div>
+                    <input type="text" class="form-control input_search" placeholder="Nombre de la actividad..." id="searchTerm3" onkeyup="doSearch('actividades','searchTerm3')"/>
+                  </div>
+                </div>
+                </div>
+                <div class="card-body col-md-12">
+                  <table class="table" id="actividades">
+                    <thead class="thead-dark">
+                      <th>Clave</th>
+                      <th>Actividad</th>
+                      <th>Tipo</th>
+                      <th>Instructor</th>
+                      <th>Matrícula Alumno</th>
+                      <th>Días</th>
+                      <th>Horario</th>
+                      <th>Lugar</th>
+                      <th>Costo</th>
+                      <th>Créditos</th>
+                      <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                      <xsl:for-each select="facultad/posgrado/maestria/actividades_extracurriculares">
+                        <xsl:apply-templates select="actividad"/>
+                      </xsl:for-each>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </body>
-      <script type="text/javascript">
-        function agregar(tipo){
-          switch (tipo) {
-            case 1:
-                window.location.href = "estudiantes.php";
-              break;
-            case 2: //Para Profesores
-              window.location.href = "profesores.php";
-              break;
-            case 3: //Para Materias
-              window.location.href = "materias.php";
-              break;
-
-          }
-        }
-        function editar(id,tipo){
-          switch (tipo) {
-            case 1: //Para BD
-              window.location.href = "estudiantes.php?id="+id;
-              break;
-            case 2: //Para SD
-              window.location.href = "profesores.php?id="+id;
-              break;
-            case 3: //Para ISI
-              window.location.href = "materias.php?id="+id;
-              break;
-          }
-        }
-        function editarEstudiante(id,tipo,area){
-          switch (area) {
-            case "BD": //Para BD
-              window.location.href = "estudiantes.php?id="+id+"&amp;area="+area;
-              break;
-            case "SD": //Para SD
-              window.location.href = "estudiantes.php?id="+id+"&amp;area="+area;
-              break;
-            case "ISI": //Para ISI
-              window.location.href = "estudiantes.php?id="+id+"&amp;area="+area;
-              break;
-            case "CM": //Para CM
-              window.location.href = "estudiantes.php?id="+id+"&amp;area="+area;
-              break;
-          }
-        }
-        function eliminar(id,tipo){
-          aviso="Titulo"
-          aviso2=""
-          switch (tipo) {
-            case 1: //Para Estudiantes
-              aviso="¿Eliminar Estudiante?"
-              aviso2="Estudiante Eliminado"
-              break;
-            case 2: //Para Profesores
-              aviso="¿Eliminar Profesor?"
-              aviso2="Profesor Eliminado"
-              break;
-            case 3: //Para Materias
-              aviso="¿Eliminar Materia?"
-              aviso2="Materia Eliminado"
-              break;
-          }
-
-          $( "<div>Esta acción no se puede deshacer... ¿Desea continuar?</div>" ).dialog({
-            title:aviso,
-            resizable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            buttons: {
-              "Eliminar": function() {
-                $( this ).dialog( "close" );
-                $.ajax({
-                  //Eliminar Registro
-                data: {acc:"3",id:id,tipo:tipo},
-                url: "include/funciones.php",
-                type: "post",
-                success: function (response) {
-                  $( "<div>Accion Completada</div>" ).dialog({
-                    title:"Acción Completada",
-                    resizable: false,
-                    height: "auto",
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                      "Entendido": function() {
-                        $( this ).dialog( "close" );
-                        location.reload();
-                      }
-                    }
-                  });
-                },
-                  error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                  }
-              });
-              },
-              "Cancelar": function() {
-                $( this ).dialog( "close" );
-              }
-            }
-          });
-        }
-      </script>
     </html>
   </xsl:template>
 
   <xsl:template match="area">
   <xsl:variable name="sitio" select="attribute::clave"/>
     <div class="card" style="margin-bottom:20px">
-      <div class="card-header d-flex justify-content-center">
-        <h2>Area: <xsl:value-of select="$sitio"/></h2>
+      <div class="card-header d-flex justify-content-center align-items-center">
+        <i class="fas fa-graduation-cap" style="margin-right: 10px; font-size: 26px;"></i>
+        <h2 style="margin: 0; color: #fff; font-weight: 600;">Área: <xsl:value-of select="$sitio"/></h2>
       </div>
-      <button type="button" class="btn btn-success" name="button">
-        <xsl:attribute name="onclick">
-          agregar(1)
-        </xsl:attribute>
-        <i class="fas fa-plus-circle"></i>  Agregar Estudiante
-      </button>
-      <div class="form-row">
-        <div class="col">
-          <h4>Estudiantes:</h4>
+      <div class="card-body">
+      <div class="form-row" style="padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 15px;">
+        <div class="col-md-4">
+          <button type="button" class="btn btn-success btn-block" name="button">
+            <xsl:attribute name="onclick">
+              agregar(1)
+            </xsl:attribute>
+            <i class="fas fa-plus-circle"></i>  Agregar Estudiante
+          </button>
         </div>
-        <div class="col">
-          <div class="col input-group" style="margin-top:10px;margin-left:20px;margin-bottom:10px;">
-            <span class="input-group-text span_search">Búsqueda Por Nombre / Matrícula</span>
-            <input type="text" class="form-control input_search" placeholder="Nombre / Matrícula">
+        <div class="col-md-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text span_search"><i class="fas fa-search"></i> Búsqueda Por Nombre / Matrícula</span>
+            </div>
+            <input type="text" class="form-control input_search" placeholder="Nombre o matrícula del estudiante...">
             <xsl:attribute name="onkeyup">
               doSearch('estudiantes<xsl:value-of select="$sitio"/>','<xsl:value-of select="$sitio"/>')
             </xsl:attribute>
@@ -306,6 +263,7 @@
           </xsl:for-each>
         </tbody>
       </table>
+      </div>
     </div>
   </xsl:template>
 
@@ -439,5 +397,34 @@
       </tr>
     </xsl:otherwise>
   </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="actividad">
+    <tr>
+      <td><xsl:value-of select="attribute::clave_actividad"/></td>
+      <td><xsl:value-of select="nombre_actividad"/></td>
+      <td><xsl:value-of select="tipo"/></td>
+      <td><xsl:value-of select="instructor"/></td>
+      <td><xsl:value-of select="matricula_alumno"/></td>
+      <td><xsl:value-of select="dias_semana"/></td>
+      <td><xsl:value-of select="horario"/></td>
+      <td><xsl:value-of select="lugar"/></td>
+      <td>$<xsl:value-of select="costo_semestral"/></td>
+      <td><xsl:value-of select="creditos_complementarios"/></td>
+      <td>
+        <button type="button" name="button" class="btn btn-danger" data-toggle="popover" title="Eliminar Actividad" style="height:32px;height:32px">
+          <xsl:attribute name="onclick">
+            eliminar('<xsl:value-of select="attribute::clave_actividad"/>',4)
+          </xsl:attribute>
+          <i class="fas fa-trash"></i>
+        </button>
+        <button type="button" name="button" class="btn btn-info" data-toggle="popover" title="Editar Actividad" style="margin-left:5px;height:32px;height:32px">
+          <xsl:attribute name="onclick">
+            editar('<xsl:value-of select="attribute::clave_actividad"/>',4)
+          </xsl:attribute>
+          <i class="fas fa-user-edit"></i>
+        </button>
+      </td>
+    </tr>
   </xsl:template>
 </xsl:stylesheet>

@@ -70,8 +70,14 @@ if (isset($_GET["id"])) {
     }
   </script>
   <body class="fondo_main">
-  <br><br>
-    <h2 align="center" class="titulo">Registrar Profesor</h2>
+  <br>
+    <div class="container">
+      <div align="center" class="logo-container">
+        <img src="assets/escudo_buap.png" width="200px" height="200px"/>
+        <img src="assets/letras.png" width="350px" height="90px" style="margin-left: 25px;"/>
+      </div>
+    </div>
+    <h2 align="center" class="titulo" style="color: #FFFFFF !important;">Registrar Profesor</h2>
     <form role="form" id="formulario" name="formulario" action="javascript:guardar();">
       <div class="container">
         <br>
@@ -79,8 +85,8 @@ if (isset($_GET["id"])) {
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
-                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Datos Personales
+                <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #FFFFFF !important; font-weight: 600; font-size: 18px; text-decoration: none;">
+                  <i class="fas fa-user" style="margin-right: 8px;"></i>Datos Personales
                 </button>
               </h5>
             </div>
@@ -122,8 +128,8 @@ if (isset($_GET["id"])) {
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
-                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Publicaciones
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #FFFFFF !important; font-weight: 600; font-size: 18px; text-decoration: none;">
+                  <i class="fas fa-file-alt" style="margin-right: 8px;"></i>Publicaciones
                 </button>
               </h5>
             </div>
@@ -156,11 +162,11 @@ if (isset($_GET["id"])) {
           <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
-                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Materias
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #FFFFFF !important; font-weight: 600; font-size: 18px; text-decoration: none;">
+                  <i class="fas fa-book" style="margin-right: 8px;"></i>Materias
                 </button>
-                <button type="button" class="btn btn-success" id="clonar_materia">Agregar Materia</button>
-                <button type="button" class="btn btn-danger" id="eliminar_materia">Eliminar Materia</button>
+                <button type="button" class="btn btn-success" id="clonar_materia"><i class="fas fa-plus"></i> Agregar Materia</button>
+                <button type="button" class="btn btn-danger" id="eliminar_materia"><i class="fas fa-trash"></i> Eliminar Materia</button>
               </h5>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">

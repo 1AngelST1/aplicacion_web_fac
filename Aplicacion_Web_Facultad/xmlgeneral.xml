@@ -62,7 +62,6 @@
                 <materia clave_mat="100409344"/>
               </materias>
             </alumno>
-            
             <alumno>
               <matricula>202205476</matricula>
               <nombre>Jorge Rojas Ruiz</nombre>
@@ -89,7 +88,35 @@
                 <materia clave_mat="100036799"/>
               </materias>
             </alumno>
-          <alumno><matricula>201302896</matricula><nombre>Francisco Valdez </nombre><fecha_nac>1990-10-04</fecha_nac><edad>30</edad><tutor>Dr. Eduardo González Álvarez</tutor><prom_actual>8.7</prom_actual><creditos>36</creditos><email>jose@gmail.com</email><telefono>7896541230</telefono><genero>M</genero><no_cvu>123456789</no_cvu><curp>VATF821004HTSLVR06</curp><rfc>VATF821004MR5</rfc><grados_academicos><grado><titulo>Licenciatura en Informática</titulo><promedio>8.7</promedio><escuela>Universidad Autónoma de Tamaulipas</escuela></grado></grados_academicos><materias><materia clave_mat="100036799"/><materia clave_mat="100237033"/><materia clave_mat="100409411"/><materia clave_mat="100409344"/></materias></alumno></alumnos>
+            <alumno>
+              <matricula>201302896</matricula>
+              <nombre>Francisco Valdez </nombre>
+              <fecha_nac>1990-10-04</fecha_nac>
+              <edad>30</edad>
+              <tutor>Dr. Eduardo González Álvarez</tutor>
+              <prom_actual>8.7</prom_actual>
+              <creditos>36</creditos>
+              <email>jose@gmail.com</email>
+              <telefono>7896541230</telefono>
+              <genero>M</genero>
+              <no_cvu>123456789</no_cvu>
+              <curp>VATF821004HTSLVR06</curp>
+              <rfc>VATF821004MR5</rfc>
+              <grados_academicos>
+                <grado>
+                  <titulo>Licenciatura en Informática</titulo>
+                  <promedio>8.7</promedio>
+                  <escuela>Universidad Autónoma de Tamaulipas</escuela>
+                </grado>
+              </grados_academicos>
+              <materias>
+                <materia clave_mat="100036799"/>
+                <materia clave_mat="100237033"/>
+                <materia clave_mat="100409411"/>
+                <materia clave_mat="100409344"/>
+              </materias>
+            </alumno>
+          </alumnos>
         </area>
         <area clave="SD">
           <alumnos>
@@ -246,6 +273,15 @@
               <nombre>Jairo Egberto Powell González</nombre>
               <fecha_nac>1991-12-17</fecha_nac>
               <edad>28</edad>
+              <tutor>Dra. Maya Carrillo Ruiz</tutor>
+              <prom_actual>9.0</prom_actual>
+              <creditos>36</creditos>
+              <email>jaipogo@hotmail.com</email>
+              <telefono>2221426422</telefono>
+              <genero>M</genero>
+              <no_cvu>956878</no_cvu>
+              <curp>POGJ9111217HPLWNR05</curp>
+              <rfc>POGJ911217</rfc>
               <grados_academicos>
                 <grado>
                   <titulo>Ingeniero en Electrónica y Sistemas Inteligentes</titulo>
@@ -259,15 +295,6 @@
                 <materia clave_mat="100119488"/>
                 <materia clave_mat="100064377"/>
               </materias>
-              <tutor>Dra. Maya Carrillo Ruiz</tutor>
-              <prom_actual>9.75</prom_actual>
-              <creditos>36</creditos>
-              <email>jaipogo@hotmail.com</email>
-              <telefono>2221426422</telefono>
-              <genero>M</genero>
-              <no_cvu>956878</no_cvu>
-              <curp>POGJ9111217HPLWNR05</curp>
-              <rfc>POGJ911217</rfc>
             </alumno>
           </alumnos>
         </area>
@@ -275,7 +302,6 @@
       <personal>
         <!--Seccion 1-->
         <profesores>
-          
           <profesor id_profesor="2">
             <nombre>María Josefa Somodevilla García</nombre>
             <materias_imp>
@@ -506,42 +532,25 @@
               </publicacion>
             </publicaciones>
           </profesor>
-        <profesor id_profesor="1"><nombre>Mireya Tovar </nombre><ubicacion>CC01</ubicacion><correo_electronico>mtovarvidal@gmail.com</correo_electronico><publicaciones><publicacion><autores>Mireya Tovar Vidal, David Eduardo Pinto Avendaño, Azucena Montes Rendón, Juan Gabriel González Serna, Darnes Vilariño Ayala</autores><titulo>Evaluation of ontological relations in corpora of restricted domain</titulo><anio>2015</anio></publicacion></publicaciones><materias_imp><materia clave_mat="100409344"/></materias_imp></profesor></profesores>
+          <profesor id_profesor="1">
+            <nombre>Mireya Tovar </nombre>
+            <ubicacion>CC01</ubicacion>
+            <correo_electronico>mtovarvidal@gmail.com</correo_electronico>
+            <publicaciones>
+              <publicacion>
+                <autores>Mireya Tovar Vidal, David Eduardo Pinto Avendaño, Azucena Montes Rendón, Juan Gabriel González Serna, Darnes Vilariño Ayala</autores>
+                <titulo>Evaluation of ontological relations in corpora of restricted domain</titulo>
+                <anio>2015</anio>
+              </publicacion>
+            </publicaciones>
+            <materias_imp>
+              <materia clave_mat="100409344"/>
+            </materias_imp>
+          </profesor>
+        </profesores>
       </personal>
       <materias>
         <!--Materias de Bases de datos-->
-        <materia es="MA">
-          <clave_mat>100036799</clave_mat>
-          <nombre>Mineria de Datos</nombre>
-          <creditos>9</creditos>
-          <horario>9:00-10:59</horario>
-          <salon>202</salon>
-          <periodo>Primavera 2020</periodo>
-        </materia>
-        <materia es="MA">
-          <clave_mat>100237033</clave_mat>
-          <nombre>Recuperacion de la Información</nombre>
-          <creditos>9</creditos>
-          <horario>7:00-9:59</horario>
-          <salon>202</salon>
-          <periodo>Primavera 2020</periodo>
-        </materia>
-        <materia es="MA">
-          <clave_mat>100409411</clave_mat>
-          <nombre>Optativa I (Topicos selectos de BD-A)</nombre>
-          <creditos>9</creditos>
-          <horario>9:00-11:59</horario>
-          <salon>208</salon>
-          <periodo>Primavera 2020</periodo>
-        </materia>
-        <materia es="MA">
-          <clave_mat>100409344</clave_mat>
-          <nombre>Optativa II (Topicos selectos de BD-B)</nombre>
-          <creditos>9</creditos>
-          <horario>11:00-12:59</horario>
-          <salon>208</salon>
-          <periodo>Primavera 2020</periodo>
-        </materia>
         <!--Materias de Bases de datos-->
         <!--Materias de Sistemas Distribuidos-->
         <materia es="MA">
@@ -636,9 +645,73 @@
           <salon>207</salon>
           <periodo>Primavera 2020</periodo>
         </materia>
-        
         <!--Materias de CM-->
-      <materia es="MA"><clave_mat>100064377</clave_mat><nombre>Análisis Numérico</nombre><creditos>9</creditos><horario>9:00-11:59</horario><salon>205</salon><periodo>Primavera 2020</periodo></materia></materias>
+        <materia es="MA">
+          <clave_mat>100064377</clave_mat>
+          <nombre>Análisis Numérico</nombre>
+          <creditos>9</creditos>
+          <horario>9:00-11:59</horario>
+          <salon>205</salon>
+          <periodo>Primavera 2020</periodo>
+        </materia>
+        <materia es="MA">
+          <clave_mat>100036799</clave_mat>
+          <nombre>Mineria de Datos</nombre>
+          <creditos>9</creditos>
+          <horario>9:00-10:59</horario>
+          <salon>202</salon>
+          <periodo>Primavera 2020</periodo>
+        </materia>
+        <materia es="MA">
+          <clave_mat>100237033</clave_mat>
+          <nombre>Recuperacion de la Información</nombre>
+          <creditos>9</creditos>
+          <horario>7:00-9:59</horario>
+          <salon>202</salon>
+          <periodo>Primavera 2020</periodo>
+        </materia>
+        <materia es="MA">
+          <clave_mat>100409411</clave_mat>
+          <nombre>Optativa I (Topicos selectos de BD-A)</nombre>
+          <creditos>9</creditos>
+          <horario>9:00-11:59</horario>
+          <salon>208</salon>
+          <periodo>Primavera 2020</periodo>
+        </materia>
+        <materia es="MA">
+          <clave_mat>100409344</clave_mat>
+          <nombre>Optativa II (Topicos selectos de BD-B)</nombre>
+          <creditos>9</creditos>
+          <horario>11:00-12:59</horario>
+          <salon>208</salon>
+          <periodo>Primavera 2020</periodo>
+        </materia>
+      </materias>
+      <actividades_extracurriculares>
+        <!-- Actividades Extracurriculares y Formación Integral -->
+        <actividad clave_actividad="ACT003">
+          <nombre_actividad>Ajedrez</nombre_actividad>
+          <tipo>Cultural</tipo>
+          <instructor>Roberto Flores</instructor>
+          <matricula_alumno>201456369</matricula_alumno>
+          <dias_semana>Sábados</dias_semana>
+          <horario>10:00 - 12:00</horario>
+          <lugar>Facultad - Sala de Usos Múltiples</lugar>
+          <costo_semestral>1500</costo_semestral>
+          <creditos_complementarios>2</creditos_complementarios>
+        </actividad>
+        <actividad clave_actividad="ACT001">
+          <nombre_actividad>ajedrez</nombre_actividad>
+          <tipo>Idiomas</tipo>
+          <instructor>John Smith</instructor>
+          <matricula_alumno>201456369</matricula_alumno>
+          <dias_semana>L-M-V</dias_semana>
+          <horario>14:00 - 16:00</horario>
+          <lugar>Centro de Lenguas</lugar>
+          <costo_semestral>3500</costo_semestral>
+          <creditos_complementarios>4</creditos_complementarios>
+        </actividad>
+      </actividades_extracurriculares>
     </maestria>
     <doctorado/>
   </posgrado>

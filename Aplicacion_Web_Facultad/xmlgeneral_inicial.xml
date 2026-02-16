@@ -666,6 +666,42 @@
         </materia>
         <!--Materias de CM-->
       </materias>
+      <actividades_extracurriculares>
+        <!-- Actividades Extracurriculares y Formación Integral -->
+        <actividad clave_actividad="ACT001">
+          <nombre_actividad>Inglés Intermedio</nombre_actividad>
+          <tipo>Idiomas</tipo>
+          <instructor>John Smith</instructor>
+          <matricula_alumno>219470458</matricula_alumno>
+          <dias_semana>L-M-V</dias_semana>
+          <horario>14:00 - 16:00</horario>
+          <lugar>Centro de Lenguas</lugar>
+          <costo_semestral>3500</costo_semestral>
+          <creditos_complementarios>4</creditos_complementarios>
+        </actividad>
+        <actividad clave_actividad="ACT002">
+          <nombre_actividad>Natación</nombre_actividad>
+          <tipo>Deportivo</tipo>
+          <instructor>Carlos Hernández</instructor>
+          <matricula_alumno>219470462</matricula_alumno>
+          <dias_semana>Martes y Jueves</dias_semana>
+          <horario>16:00 - 18:00</horario>
+          <lugar>Complejo Deportivo</lugar>
+          <costo_semestral>2500</costo_semestral>
+          <creditos_complementarios>3</creditos_complementarios>
+        </actividad>
+        <actividad clave_actividad="ACT003">
+          <nombre_actividad>Ajedrez</nombre_actividad>
+          <tipo>Cultural</tipo>
+          <instructor>Roberto Flores</instructor>
+          <matricula_alumno>219470458</matricula_alumno>
+          <dias_semana>Sábados</dias_semana>
+          <horario>10:00 - 12:00</horario>
+          <lugar>Facultad - Sala de Usos Múltiples</lugar>
+          <costo_semestral>1500</costo_semestral>
+          <creditos_complementarios>2</creditos_complementarios>
+        </actividad>
+      </actividades_extracurriculares>
     </maestria>
     <doctorado/>
   </posgrado>

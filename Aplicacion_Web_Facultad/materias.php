@@ -66,12 +66,18 @@ if (isset($_GET["id"])) {
     }
   </script>
   <body class="fondo_main">
-    <br/><br/>
-    <h2 align="center" class="titulo">Registrar Materia</h2>
+    <br/>
+    <div class="container">
+      <div align="center" class="logo-container">
+        <img src="assets/escudo_buap.png" width="200px" height="200px"/>
+        <img src="assets/letras.png" width="350px" height="90px" style="margin-left: 25px;"/>
+      </div>
+    </div>
+    <h2 align="center" class="titulo" style="color: #FFFFFF !important;">Registrar Materia</h2>
       <form role="form" id="formulario" name="formulario" action="javascript:guardar();">
         <div class="container" style="margin-top:50px;">
           <div class="card">
-            <h5 class="card-header d-flex justify-content-center">Datos de la materia</h5>
+            <h5 class="card-header d-flex justify-content-center align-items-center" style="color: #FFFFFF !important; font-weight: 600;"><i class="fas fa-book-open" style="margin-right: 10px;"></i>Datos de la materia</h5>
             <div class="card-body">
               <div class="container" style="width:80rem; margin-top:20px; margin-bottom:20px;">
                 <div class="form-row">
